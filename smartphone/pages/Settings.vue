@@ -5,7 +5,11 @@
       <div>Flugmodus</div>
       <div>
         <label class="switch">
-          <input @click="toogleFlightMode" type="checkbox" />
+          <input
+            @click="toogleFlightMode"
+            type="checkbox"
+            :value="flightMode"
+          />
           <span class="slider round"></span>
         </label>
       </div>
@@ -24,7 +28,7 @@ import TopBar from "./components/TopBar.vue";
 import useFlightMode from "./composables/useFlightMode.js";
 
 export default defineComponent({
-  name: 'Settings',
+  name: "Settings",
   components: { HomeButton, TopBar },
   setup() {
     const { setFlightMode } = useFlightMode();
@@ -35,7 +39,7 @@ export default defineComponent({
       setFlightMode(flightMode);
     }
 
-    return { toogleFlightMode };
+    return { toogleFlightMode, flightMode };
   },
 });
 </script>
