@@ -1,13 +1,19 @@
 <template>
   <div id="hotBar">
-    <div class="app" id="appPhoneButton" @click="changePageIndex(2)"></div>
-
+    <div class="app" id="appPhoneButton" @click="changePageIndex('DialScreen')">
+      <span class="material-icons md-2">
+        call
+      </span>
+    </div>
+      
     <div
       class="app"
       id="appContactsButton"
       @click="changePageIndex('Contacts')"
     >
-      <!-- <MenuBookSharp /> -->
+      <span class="material-icons md-2">
+        contacts
+      </span>
     </div>
     <div class="app" id="appMessagesButton"></div>
   </div>
@@ -20,12 +26,11 @@ import usePage from "../composables/usePage.js";
 export default defineComponent({
   name: "HotBar",
   components: {},
-  setup(props, { emit }) {
+  setup() {
     const { setPage } = usePage();
 
     function changePageIndex(index) {
       setPage(index);
-      console.log(index);
     }
 
     return {

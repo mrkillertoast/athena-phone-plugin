@@ -2,15 +2,15 @@
   <TopBar />
   <div class="columns-3">
     <div class="" id="back" @click="changePageIndex('Contacts')">
-      <Icon size="1.5vw">
-        <ArrowBackSharp />
-      </Icon>
+      <span class="material-icons md-15">
+        arrow_back
+      </span>
     </div>
     <div></div>
     <div class="align-right" @click="newContact">
-      <Icon size="1.5vw">
-        <SaveSharp />
-      </Icon>
+      <span class="material-icons md-15">
+        save
+      </span>
     </div>
   </div>
   <ContactInput
@@ -30,10 +30,6 @@ import ContactInput from "./components/ContactInput.vue";
 import useContacts from "./composables/useContacts.js";
 import usePage from "./composables/usePage.js";
 
-//ICONS
-// import { ArrowBackSharp, SaveSharp } from "@vicons/material";
-// import { Icon } from "@vicons/utils";
-
 //Vue
 import { ref, defineComponent } from "vue";
 
@@ -42,9 +38,6 @@ export default defineComponent({
   components: {
     TopBar,
     HomeButton,
-    Icon,
-    SaveSharp,
-    ArrowBackSharp,
     ContactInput,
   },
   setup() {

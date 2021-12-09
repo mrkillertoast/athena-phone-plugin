@@ -31,8 +31,17 @@ export default defineComponent({
     //     };
     // },
     setup(props, context){
-        let pageIndex= 0;
-        let pages = ['Homescreen', 'Contacts', 'DialScreen', 'Settings'];
+        let pageIndex= 4;
+        let pages = [
+    'ActiveCall',
+    'ContactDetail',
+    'Contacts',
+    'DialScreen',
+    'Homescreen',
+    'IncomingCall',
+    'NewContact',
+    'Settings',
+];
 
         const {activePage} = usePage()
 
@@ -180,6 +189,9 @@ h5 {
   padding-top: 0.25vw;
 }
 .app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #000;
   width: 2.75vw;
   height: 2.75vw;
@@ -524,7 +536,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .material-icons.md-1 {
     font-size: 1vw;
 }
-
+.material-icons.md-15{
+    font-size: 1.5vw;
+}
 .material-icons.md-2 {
     font-size: 2vw;
 }

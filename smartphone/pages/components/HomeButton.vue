@@ -1,5 +1,5 @@
 <template>
-  <div id="homeButton" @click="changePageIndex('HomeScreen')"></div>
+  <div id="homeButton" @click="changePageIndex('Homescreen')"></div>
 </template>
 
 <script>
@@ -14,6 +14,7 @@ export default defineComponent({
 
     function changePageIndex(index) {
       setPage(index);
+      console.log(index)
     }
 
     return {

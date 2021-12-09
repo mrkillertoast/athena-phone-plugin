@@ -3,41 +3,43 @@
 
   <div class="columns-3">
     <div class="" id="back" @click="changePageIndex('Contacts')">
-      <Icon size="1.5vw">
-        <ArrowBackSharp />
-      </Icon>
+      <span class="material-icons md-15">
+        arrow_back
+      </span>
     </div>
     <div></div>
     <div></div>
     <div></div>
     <div v-if="!editMode"></div>
     <div class="align-right" v-if="editMode" @click="handleDelete">
-      <Icon size="1.5vw"><DeleteFilled /></Icon>
+      <span class="material-icons md-15">
+        delete
+      </span>
     </div>
     <div class="align-right" @click="toggleEditMode" v-if="!editMode">
-      <Icon size="1.5vw">
-        <ModeEditOutlined />
-      </Icon>
+      <span class="material-icons md-15">
+        edit
+      </span>
     </div>
 
     <div class="align-right" v-if="editMode" @click="saveContact">
-      <Icon size="1.5vw">
-        <SaveSharp />
-      </Icon>
+      <span class="material-icons md-15">
+        save
+      </span>
     </div>
   </div>
 
   <ContactImage :contactFirstName="firstName" :contactLastName="lastName" />
   <div id="contactActions">
     <div class="hoverEffect">
-      <Icon size="2vw">
-        <LocalPhoneSharp />
-      </Icon>
+      <span class="material-icons md-2">
+        call
+      </span>
     </div>
     <div class="hoverEffect">
-      <Icon size="2vw">
-        <MessageSharp />
-      </Icon>
+      <span class="material-icons md-2">
+        message
+      </span>
     </div>
   </div>
   <ContactInput
@@ -59,38 +61,21 @@ import useContacts from "./composables/useContacts.js";
 import usePage from "./composables/usePage.js";
 import { ref, defineComponent } from "vue";
 
-// import {
-//   ArrowBackSharp,
-//   LocalPhoneSharp,
-//   MessageSharp,
-//   ModeEditOutlined,
-//   SaveSharp,
-//   DeleteFilled,
-// } from "@vicons/material";
-// import { Icon } from "@vicons/utils";
-
 export default defineComponent({
   name: "ContactDetail",
   components: {
     TopBar,
     HomeButton,
     ContactImage,
-    ArrowBackSharp,
-    Icon,
     ContactInput,
-    LocalPhoneSharp,
-    MessageSharp,
-    ModeEditOutlined,
-    SaveSharp,
-    DeleteFilled,
   },
   props: ["id"],
   setup(props) {
     const { getContact, updateContact, deleteContact } = useContacts();
-    const { setPage } = usePage();
+    const { setPage, currentProp } = usePage();
     let editMode = ref(false);
     let readonly = ref(true);
-    const contact = getContact(props.id);
+    const contact = getContact(currentProp);
 
     let firstName = ref(contact.firstName);
     let lastName = ref(contact.lastName);

@@ -18,11 +18,6 @@ import HomeButton from "./components/HomeButton.vue";
 import Apps from "./components/Apps.vue";
 import { defineComponent } from "vue";
 
-// export default defineComponent{
-//   name: "Homescreen",
-//   components: { TopBar, HotBar, HomeButton, Apps },
-// };
-
 export default defineComponent({
   name: "Homescreen",
   components: {

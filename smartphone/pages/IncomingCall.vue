@@ -5,10 +5,14 @@
   <div class="bottom padding-bottom-2vw">
     <div class="grid-2-1">
       <div class="circle2 green">
-        <Icon size="3vw"><LocalPhoneOutlined /></Icon>
+          <span class="material-icons md-35">
+            call
+          </span>
       </div>
       <div class="circle2 red">
-        <Icon size="3vw"><CallEndOutlined /></Icon>
+        <span class="material-icons md-35">
+          call_end
+        </span>
       </div>
     </div>
   </div>
@@ -17,8 +21,6 @@
 <script>
 import ContactImage from "./components/ContactImage.vue";
 import TopBar from "./components/TopBar.vue";
-// import { LocalPhoneOutlined, CallEndOutlined } from "@vicons/material";
-// import { Icon } from "@vicons/utils";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -26,9 +28,6 @@ export default defineComponent({
   components: {
     ContactImage,
     TopBar,
-    Icon,
-    LocalPhoneOutlined,
-    CallEndOutlined,
   },
   setup() {
     let firstName = "Frank";

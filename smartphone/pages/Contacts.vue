@@ -7,9 +7,9 @@
     </div>
     <span class="border-left">
       <router-link class="routerlink" :to="{ name: 'NewContact' }">
-        <!-- <Icon size="1.5vw">
-          <PlusSharp />
-        </Icon> -->
+        <span class="material-icons md-15">
+          add
+        </span>
       </router-link>
     </span>
   </div>
@@ -20,16 +20,16 @@
       v-for="contact in filteredContacts"
       :key="contact.id"
     >
-      <router-link
+      <!-- <router-link
         class="routerlink"
         :to="{ name: 'ContactDetail', params: { id: contact.id } }"
-      >
-        <span>
+      > -->
+        <span @click="gotoContactDetail(contact.id)">
           <li>
             {{ contact.name }}
           </li>
         </span>
-      </router-link>
+      <!-- </router-link> -->
     </div>
   </div>
 
@@ -40,9 +40,8 @@
 import TopBar from "./components/TopBar.vue";
 import HomeButton from "./components/HomeButton.vue";
 import useContacts from "./composables/useContacts.js";
+import usePage from "./composables/usePage.js"
 
-// import { PlusSharp } from "@vicons/material";
-// import { Icon } from "@vicons/utils";
 import { computed, defineComponent, ref } from "vue";
 
 
@@ -56,6 +55,7 @@ export default defineComponent({
     const search = ref("");
 
     const { contacts } = useContacts();
+    const { setPage, setProp} = usePage();
 
     const filteredContacts = computed(() => {
       return contacts.value.filter((contact) => {
@@ -64,9 +64,14 @@ export default defineComponent({
       });
     });
 
+    function gotoContactDetail(id){
+        setProp(id);
+        setPage('ContactDetail');
+    }
+
     //const contacts
 
-    return { filteredContacts, search };
+    return { filteredContacts, search, gotoContactDetail };
   },
 });
 </script>

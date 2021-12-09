@@ -5,49 +5,48 @@
   <hr />
   <div class="grid-3-1">
     <div class="item">
-      <Icon size="3.5vw"><MicOffOutlined /></Icon>
+      <span class="material-icons md-35">
+        mic_off
+      </span>
     </div>
     <div class="item">
-      <Icon size="3.5vw"><AddOutlined /></Icon>
+      <span class="material-icons md-35">
+        add
+      </span>
     </div>
 
     <div class="item">
-      <Icon size="3.5vw"><VolumeUpOutlined /></Icon>
+      <span class="material-icons md-35">
+        volume_up
+      </span>
     </div>
   </div>
   <div class="circle2 red bottom" @click="endCall">
-    <Icon size="3.5vw"><CallEndOutlined /></Icon>
+    <span class="material-icons md-35">
+      call_end
+    </span>
   </div>
 </template>
 
 <script>
 import TopBar from "./components/TopBar.vue";
-// import {
-//   MicOffOutlined,
-//   AddOutlined,
-//   VolumeUpOutlined,
-//   CallEndOutlined,
-// } from "@vicons/material";
-// import { Icon } from "@vicons/utils";
+import usePage from './composables/usePage.js'
 
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "ActiveCall",
   components: {
     TopBar,
-    Icon,
-    MicOffOutlined,
-    AddOutlined,
-    VolumeUpOutlined,
-    CallEndOutlined,
+    
   },
   setup() {
     let firstName = "Frank";
     let lastName = "Bahwawa Conner";
-    const router = useRouter();
 
-    function endCall() {
-      router.push({ name: "Home" });
+    const { setPage } = usePage();
+
+    function endCall() { 
+      setPage('HomeScreen');
     }
 
     return { firstName, lastName, endCall };
