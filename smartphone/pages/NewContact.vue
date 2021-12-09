@@ -1,13 +1,11 @@
 <template>
   <TopBar />
   <div class="columns-3">
-    <router-link class="routerlink" to="/contacts">
-      <div class="" id="back">
-        <Icon size="1.5vw">
-          <ArrowBackSharp />
-        </Icon>
-      </div>
-    </router-link>
+    <div class="" id="back" @click="changePageIndex('Contacts')">
+      <Icon size="1.5vw">
+        <ArrowBackSharp />
+      </Icon>
+    </div>
     <div></div>
     <div class="align-right" @click="newContact">
       <Icon size="1.5vw">
@@ -30,6 +28,7 @@ import TopBar from "../components/TopBar";
 import HomeButton from "../components/HomeButton";
 import ContactInput from "../components/ContactInput";
 import useContacts from "../composables/useContacts";
+import usePage from "./composables/usePage.js";
 
 //ICONS
 import { ArrowBackSharp, SaveSharp } from "@vicons/material";
@@ -37,7 +36,6 @@ import { Icon } from "@vicons/utils";
 
 //Vue
 import { ref, defineComponent } from "vue";
-import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "NewContact",
@@ -50,13 +48,13 @@ export default defineComponent({
     ContactInput,
   },
   setup() {
-    const router = useRouter();
     let firstName = ref("");
     let lastName = ref("");
     let phoneNumber = ref("");
     let readonly = false;
 
     const { saveContact } = useContacts();
+    const { setPage } = usePage();
 
     function newContact() {
       if (
@@ -67,7 +65,11 @@ export default defineComponent({
         return;
       }
       saveContact(firstName, lastName, phoneNumber);
-      router.push({ name: "Contacts" });
+      setPage("Contacts");
+    }
+
+    function changePageIndex(index) {
+      setPage(index);
     }
 
     return { readonly, newContact, firstName, lastName, phoneNumber };

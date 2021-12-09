@@ -2,7 +2,11 @@
   <div id="hotBar">
     <div class="app" id="appPhoneButton" @click="changePageIndex(2)"></div>
 
-    <div class="app" id="appContactsButton" @click="changePageIndex(1)">
+    <div
+      class="app"
+      id="appContactsButton"
+      @click="changePageIndex('Contacts')"
+    >
       <!-- <MenuBookSharp /> -->
     </div>
     <div class="app" id="appMessagesButton"></div>

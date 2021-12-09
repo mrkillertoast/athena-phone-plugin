@@ -1,30 +1,25 @@
 <template>
-  
-    <div id="homeButton" @click="changePageIndex(0)"></div>
-  
+  <div id="homeButton" @click="changePageIndex('HomeScreen')"></div>
 </template>
 
 <script>
-import { defineComponent } from '@vue/runtime-core';
-import usePage from '../composables/usePage.js'
+import { defineComponent } from "@vue/runtime-core";
+import usePage from "../composables/usePage.js";
 
 export default defineComponent({
-  name: 'HomeButton',
-  components: {  },
-  setup(props, {emit}){
-  
+  name: "HomeButton",
+  components: {},
+  setup(props, { emit }) {
     const { setPage } = usePage();
 
-
-
-    function changePageIndex(index){
+    function changePageIndex(index) {
       setPage(index);
     }
 
-    return{
-      changePageIndex
-    }
-  }
+    return {
+      changePageIndex,
+    };
+  },
 });
 </script>
 

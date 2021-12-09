@@ -2,13 +2,11 @@
   <TopBar />
 
   <div class="columns-3">
-    <router-link class="routerlink" to="/contacts">
-      <div class="" id="back">
-        <Icon size="1.5vw">
-          <ArrowBackSharp />
-        </Icon>
-      </div>
-    </router-link>
+    <div class="" id="back" @click="changePageIndex('Contacts')">
+      <Icon size="1.5vw">
+        <ArrowBackSharp />
+      </Icon>
+    </div>
     <div></div>
     <div></div>
     <div></div>
@@ -58,8 +56,8 @@ import ContactImage from "../components/ContactImage";
 import ContactInput from "../components/ContactInput";
 
 import useContacts from "../composables/useContacts";
+import usePage from "./composables/usePage.js";
 import { ref, defineComponent } from "vue";
-import { useRouter } from "vue-router";
 
 import {
   ArrowBackSharp,
@@ -89,7 +87,7 @@ export default defineComponent({
   props: ["id"],
   setup(props) {
     const { getContact, updateContact, deleteContact } = useContacts();
-    const router = useRouter();
+    const { setPage } = usePage();
     let editMode = ref(false);
     let readonly = ref(true);
     const contact = getContact(props.id);
@@ -112,7 +110,10 @@ export default defineComponent({
     function handleDelete() {
       console.log(contact.id);
       deleteContact(contact.id);
-      router.push({ name: "Contacts" });
+      setPage("Contacts");
+    }
+    function changePageIndex(index) {
+      setPage(index);
     }
 
     return {
@@ -124,6 +125,7 @@ export default defineComponent({
       lastName,
       phoneNumber,
       handleDelete,
+      changePageIndex,
     };
   },
 });
