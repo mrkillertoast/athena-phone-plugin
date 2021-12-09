@@ -1,10 +1,8 @@
 <template>
   <div id="apps">
-      <div class="app" id="appSettings" @click="changePageIndex(3)">
-        <span class="material-icons md-2">
-          settings
-        </span>
-      </div>
+    <div class="app" id="appSettings" @click="changePageIndex(3)">
+      <span class="material-icons md-2"> settings </span>
+    </div>
     <div class="app" id="appBank">
       <!-- <Icon>
         <AttachMoneySharp />
@@ -17,26 +15,25 @@
 <script>
 // import { SettingsTwotone, AttachMoneySharp } from "@vicons/material";
 // import { Icon } from "@vicons/utils";
-import usePage from '../composables/usePage.js'
+import usePage from "../composables/usePage.js";
+import { defineComponent } from "vue";
 
-export default {
-  components: { },
-  setup(props, {emit}){
-  
+export default defineComponent({
+  name: "Apps",
+  components: {},
+  setup(props, { emit }) {
     const { setPage } = usePage();
 
-
-
-    function changePageIndex(index){
+    function changePageIndex(index) {
       setPage(index);
-      console.log(index)
+      console.log(index);
     }
 
-    return{
-      changePageIndex
-    }
-  }
-};
+    return {
+      changePageIndex,
+    };
+  },
+});
 </script>
 
 <style>

@@ -30,8 +30,9 @@ import {
 } from "@vicons/material";
 import { Icon } from "@vicons/utils";
 
-import { useRouter } from "vue-router";
-export default {
+import { useRouter, defineComponent } from "vue-router";
+export default defineComponent({
+  name: "ActiveCall",
   components: {
     TopBar,
     Icon,
@@ -51,7 +52,7 @@ export default {
 
     return { firstName, lastName, endCall };
   },
-};
+});
 </script>
 
 <style>

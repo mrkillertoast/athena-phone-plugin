@@ -36,10 +36,11 @@ import { ArrowBackSharp, SaveSharp } from "@vicons/material";
 import { Icon } from "@vicons/utils";
 
 //Vue
-import { ref } from "vue";
+import { ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
 
-export default {
+export default defineComponent({
+  name: "NewContact",
   components: {
     TopBar,
     HomeButton,
@@ -71,7 +72,7 @@ export default {
 
     return { readonly, newContact, firstName, lastName, phoneNumber };
   },
-};
+});
 </script>
 
 <style>

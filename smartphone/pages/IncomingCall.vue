@@ -19,7 +19,10 @@ import ContactImage from "../components/ContactImage";
 import TopBar from "../components/TopBar";
 import { LocalPhoneOutlined, CallEndOutlined } from "@vicons/material";
 import { Icon } from "@vicons/utils";
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "IncomingCall",
   components: {
     ContactImage,
     TopBar,
@@ -33,7 +36,7 @@ export default {
 
     return { firstName, lastName };
   },
-};
+});
 </script>
 
 <style>

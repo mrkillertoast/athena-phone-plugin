@@ -58,7 +58,7 @@ import ContactImage from "../components/ContactImage";
 import ContactInput from "../components/ContactInput";
 
 import useContacts from "../composables/useContacts";
-import { ref } from "vue";
+import { ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
 
 import {
@@ -71,7 +71,8 @@ import {
 } from "@vicons/material";
 import { Icon } from "@vicons/utils";
 
-export default {
+export default defineComponent({
+  name: "ContactDetail",
   components: {
     TopBar,
     HomeButton,
@@ -93,7 +94,6 @@ export default {
     let readonly = ref(true);
     const contact = getContact(props.id);
 
-
     let firstName = ref(contact.firstName);
     let lastName = ref(contact.lastName);
     let phoneNumber = ref(contact.phoneNumber);
@@ -113,7 +113,6 @@ export default {
       console.log(contact.id);
       deleteContact(contact.id);
       router.push({ name: "Contacts" });
-      
     }
 
     return {
@@ -127,7 +126,7 @@ export default {
       handleDelete,
     };
   },
-};
+});
 </script>
 
 <style>

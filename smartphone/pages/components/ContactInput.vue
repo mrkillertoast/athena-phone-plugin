@@ -40,8 +40,9 @@ l<template>
 <script>
 // import { ref } from "vue";
 // import { ContactImage } from "./ContactImage";
-
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "ContactInput",
   props: {
     firstName: {
       type: String,
@@ -65,7 +66,7 @@ export default {
     return { updateLastName };
     // return { readonly, firstName };
   },
-};
+});
 </script>
 
 <style>
