@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import ContactImage from "../components/ContactImage";
-import TopBar from "../components/TopBar";
-import { LocalPhoneOutlined, CallEndOutlined } from "@vicons/material";
-import { Icon } from "@vicons/utils";
+import ContactImage from "./components/ContactImage.vue";
+import TopBar from "./components/TopBar.vue";
+// import { LocalPhoneOutlined, CallEndOutlined } from "@vicons/material";
+// import { Icon } from "@vicons/utils";
 import { defineComponent } from "vue";
 
 export default defineComponent({

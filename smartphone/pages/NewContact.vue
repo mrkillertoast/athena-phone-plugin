@@ -24,15 +24,15 @@
 
 <script>
 //Components & Composables
-import TopBar from "../components/TopBar";
-import HomeButton from "../components/HomeButton";
-import ContactInput from "../components/ContactInput";
-import useContacts from "../composables/useContacts";
+import TopBar from "./components/TopBar.vue";
+import HomeButton from "./components/HomeButton.vue";
+import ContactInput from "./components/ContactInput.vue";
+import useContacts from "./composables/useContacts.js";
 import usePage from "./composables/usePage.js";
 
 //ICONS
-import { ArrowBackSharp, SaveSharp } from "@vicons/material";
-import { Icon } from "@vicons/utils";
+// import { ArrowBackSharp, SaveSharp } from "@vicons/material";
+// import { Icon } from "@vicons/utils";
 
 //Vue
 import { ref, defineComponent } from "vue";

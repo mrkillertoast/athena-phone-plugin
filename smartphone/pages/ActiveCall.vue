@@ -21,16 +21,16 @@
 </template>
 
 <script>
-import TopBar from "../components/TopBar";
-import {
-  MicOffOutlined,
-  AddOutlined,
-  VolumeUpOutlined,
-  CallEndOutlined,
-} from "@vicons/material";
-import { Icon } from "@vicons/utils";
+import TopBar from "./components/TopBar.vue";
+// import {
+//   MicOffOutlined,
+//   AddOutlined,
+//   VolumeUpOutlined,
+//   CallEndOutlined,
+// } from "@vicons/material";
+// import { Icon } from "@vicons/utils";
 
-import { useRouter, defineComponent } from "vue-router";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "ActiveCall",
   components: {

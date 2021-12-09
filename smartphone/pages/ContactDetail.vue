@@ -50,24 +50,24 @@
 </template>
 
 <script>
-import TopBar from "../components/TopBar";
-import HomeButton from "../components/HomeButton";
-import ContactImage from "../components/ContactImage";
-import ContactInput from "../components/ContactInput";
+import TopBar from "./components/TopBar.vue";
+import HomeButton from "./components/HomeButton.vue";
+import ContactImage from "./components/ContactImage.vue";
+import ContactInput from "./components/ContactInput.vue";
 
-import useContacts from "../composables/useContacts";
+import useContacts from "./composables/useContacts.js";
 import usePage from "./composables/usePage.js";
 import { ref, defineComponent } from "vue";
 
-import {
-  ArrowBackSharp,
-  LocalPhoneSharp,
-  MessageSharp,
-  ModeEditOutlined,
-  SaveSharp,
-  DeleteFilled,
-} from "@vicons/material";
-import { Icon } from "@vicons/utils";
+// import {
+//   ArrowBackSharp,
+//   LocalPhoneSharp,
+//   MessageSharp,
+//   ModeEditOutlined,
+//   SaveSharp,
+//   DeleteFilled,
+// } from "@vicons/material";
+// import { Icon } from "@vicons/utils";
 
 export default defineComponent({
   name: "ContactDetail",
