@@ -99,6 +99,7 @@ h5 {
   right: 2vw;
   border-radius: 0.75vw;
   box-shadow: 0 0 1vw var(--border);
+  top: 19vw;
   /*opacity: 0.5;*/
 }
 #notificationBar {
