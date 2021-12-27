@@ -1,6 +1,6 @@
 <template>
   <div id="apps">
-    <div class="app" id="appSettings" @click="changePageIndex(3)">
+    <div class="app" id="appSettings" @click="changePageIndex('Settings')">
       <span class="material-icons md-2"> settings </span>
     </div>
     <div class="app" id="appBank">

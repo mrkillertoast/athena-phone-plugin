@@ -6,11 +6,11 @@
       <input type="text" placeholder="Suche" v-model="search" class="search" />
     </div>
     <span class="border-left">
-      <router-link class="routerlink" :to="{ name: 'NewContact' }">
-        <span class="material-icons md-15">
+      <span @click="changePageIndex('NewContact')">
+        <span class="material-icons md-15" >
           add
         </span>
-      </router-link>
+      </span>
     </span>
   </div>
   <hr />
@@ -20,16 +20,11 @@
       v-for="contact in filteredContacts"
       :key="contact.id"
     >
-      <!-- <router-link
-        class="routerlink"
-        :to="{ name: 'ContactDetail', params: { id: contact.id } }"
-      > -->
         <span @click="gotoContactDetail(contact.id)">
           <li>
             {{ contact.name }}
           </li>
         </span>
-      <!-- </router-link> -->
     </div>
   </div>
 
@@ -64,6 +59,10 @@ export default defineComponent({
       });
     });
 
+    function changePageIndex(index) {
+      setPage(index);
+    }
+
     function gotoContactDetail(id){
         setProp(id);
         setPage('ContactDetail');
@@ -71,7 +70,7 @@ export default defineComponent({
 
     //const contacts
 
-    return { filteredContacts, search, gotoContactDetail };
+    return { filteredContacts, search, gotoContactDetail, changePageIndex };
   },
 });
 </script>
